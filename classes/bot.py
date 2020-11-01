@@ -81,7 +81,7 @@ class ModMail(commands.AutoShardedBot):
     banned_users = []
 
     async def connect_redis(self):
-        self.redis = await aioredis.create_pool("redis://localhost", minsize=5, maxsize=10, loop=self.loop, db=0)
+        self.redis = await aioredis.create_pool(f"redis://{self.config.redis_hostname}", minsize=5, maxsize=10, loop=self.loop, db=0)
         info = (await self.redis.execute("INFO")).decode()
         for line in info.split("\n"):
             if line.startswith("redis_version"):
