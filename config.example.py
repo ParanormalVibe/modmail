@@ -28,6 +28,9 @@ testing = True
 # PUBSUB channel for Redis
 ipc_channel = ""
 
+# Redis instance hostname
+redis_hostname = "localhost"
+
 # Postgres database credentials
 database = {
     "database": "",
